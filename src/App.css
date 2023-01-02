@@ -1,38 +1,118 @@
 .App {
-  text-align: center;
+  position: relative;
+  width: 396px;
+  height: 784px;
+
+  background: #DCDCDC;
+  box-shadow: 0 25px 40px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, .1);
+  padding-inline: 38px;
+  padding-top: 28px;
+
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h1 {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 53px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.actionBtn {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 60px;
+  background: var(--green-1);
+  border: none;
+  border-bottom: 8px solid var(--green-2);
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.actionBtn:active {
+  border-bottom: 4px solid var(--green-2);
+  transform: translate(-50%, 0px);
+}
+
+.form-input {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  transition: .8s;
+}
+
+.form-input.active {
+  padding-left: 20px;
+}
+
+.form-input label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.form-input select {
+  height: 50px;
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, .2);
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  padding-left: 12px;
+  margin-top: 15px;
+}
+
+.part-list {
+  display: flex;
+  justify-content: start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.part-list p {
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, .2);
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  padding-left: 15px;
+  padding-top: 10px;
+  position: relative;
+  transition: .4s;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.part-list p::after {
+  content: '+';
+  font-weight: 600;
+  font-size: 36px;
+  position: absolute;
+  right: 20px;
+  transition: .4s;
+}
+
+.part-list p.active {
+  background: rgba(149, 191, 116, .5);
+}
+
+.part-list p.active::after {
+  transform: translateY(4px) rotate(215deg);
+}
+
+.activeBall {
+  position: absolute;
+  background: var(--green-3);
+  height: 14px;
+  aspect-ratio: 1;
+  transform: translate(-3px, 4px);
 }
